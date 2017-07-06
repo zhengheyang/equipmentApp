@@ -1,0 +1,187 @@
+<div class="overflow-hidden">
+    <div class="wrapper preload">
+        <header class="top-nav">
+            <div class="top-nav-inner">
+                <div class="nav-header">
+                    <button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleSM">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <ul class="nav-notification pull-right">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                    class="fa fa-cog fa-lg"></i></a>
+                            <span class="badge badge-danger bounceIn">1</span>
+                            <ul class="dropdown-menu dropdown-sm pull-right user-dropdown">
+                                下载手机端App
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class="brand">
+                   <span class="brand-name">
+                       建筑设备报检
+                       <span class="text-skin">管理系统</span>
+                   </span>
+                    </a>
+                </div>
+                <div class="nav-container">
+                    <button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleLG">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+
+                    <div class="pull-right m-right" ng-click="loginOut()"
+                         style="font-family: 微软雅黑;line-height: 52px;display: block;margin-right: 15px;float: right">
+                        <a type="button" href="https://fir.im/bdm7" target="_blank" class="btn btn-link">下载手机端App</a>
+                        <button type="button" class="btn btn-link" ng-click="onExitClick()">退出</button>
+                    </div>
+
+                </div>
+            </div><!-- ./top-nav-inner -->
+        </header>
+        <aside class="sidebar-menu fixed">
+            <div class="sidebar-inner scrollable-sidebar">
+                <div class="main-menu">
+                    <ul class="accordion">
+                        <li class="openable bg-palette2">
+                            <a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
+										<span class="text m-left-sm">基础信息管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+                                <span class="menu-content-hover block">
+										Form
+									</span>
+                            </a>
+                            <ul class="submenu bg-palette4">
+                                <li><a href="#!/main/page1"><span class="submenu-label">test1</span></a></li>
+                                <li><a href="#!/main/page2"><span class="submenu-label">test2</span></a></li>
+                                <li><a href="#!/main/page3"><span class="submenu-label">test3</span></a></li>
+                                <li><a href="#!/main/page4"><span class="submenu-label">test4</span></a></li>
+                                <li><a href="#!/main/engineering-service"><span class="submenu-label">工程信息维护</span></a></li>
+
+                                <li class="openable bg-palette2">
+                                    <a href="#">
+                                        <span class="submenu-label">单位信息</span>
+                                        <span class="submenu-icon"></span>
+                                        <span class="menu-content-hover block">
+										Form
+									</span>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li><a href="#!/main/install-unit"><span class="submenu-label">安装单位</span></a></li>
+                                        <li><a href="#!/main/property-unit"><span class="submenu-label">产权单位</span></a></li>
+                                        <li><a href="#!/main/epc-unit"><span class="submenu-label">施工总承包单位</span></a></li>
+                                        <li><a href="#!/main/inspection-unit"><span class="submenu-label">检验单位</span></a></li>
+                                        <li><a href="#!/main/other-unit"><span class="submenu-label">其他单位</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="openable bg-palette2">
+                                    <a href="#">
+										<span class="submenu-label">人员信息维护</span>
+										<span class="submenu-icon"></span>
+                                        <span class="menu-content-hover block">
+										Form
+									</span>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li><a href="#!/main/inspection-person"><span class="submenu-label">检验人员</span></a></li>
+                                        <li><a href="#!/main/qtz-driver"><span class="submenu-label">塔机司机</span></a></li>
+                                        <li><a href="#!/main/qtz-worker"><span class="submenu-label">塔机索工</span></a></li>
+                                        <li><a href="#!/main/safety-officer"><span class="submenu-label">安全员</span></a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="#!/main/equitment-service"><span class="submenu-label">设备类型管理</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="openable bg-palette4">
+                            <a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
+										<span class="text m-left-sm">检验信息维护</span>
+										<span class="submenu-icon"></span>
+									</span>
+                                <span class="menu-content-hover block">
+										UI Kits
+									</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#!/main/inspection-application"><span class="submenu-label">设备报检申请</span></a></li>
+                                <li><a href="#!/main/inspection-unit-audit"><span class="submenu-label">检验单位审核</span></a></li>
+                                <li><a href="#"><span class="submenu-label">检验单位检验准备</span></a></li>
+                                <li><a href="#"><span class="submenu-label">现场检验</span></a></li>
+                                <li><a href="#"><span class="submenu-label">检验报告</span></a></li>
+                                <li><a href="#"><span class="submenu-label">检验报告复检</span></a></li>
+                                <li><a href="#"><span class="submenu-label">安全检验合格证</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="openable bg-palette1">
+                            <a href="#">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
+										<span class="text m-left-sm">系统管理</span>
+										<span class="submenu-icon"></span>
+									</span>
+                                <span class="menu-content-hover block">
+										Pages
+									</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#!/main/admin-management"><span class="submenu-label">管理员管理</span></a></li>
+                                <li><a href="#!/main/role-management"><span class="submenu-label">角色管理</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-fix-bottom clearfix">
+                    <div class="user-dropdown dropup pull-left">
+                        <a href="#" class="dropdwon-toggle font-18" data-toggle="dropdown"><i
+                                class="ion-person-add"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="inbox.html">
+                                    Inbox
+                                    <span class="badge badge-danger bounceIn animation-delay2 pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Notification
+                                    <span class="badge badge-purple bounceIn animation-delay3 pull-right">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="sidebarRight-toggle">
+                                    Message
+                                    <span class="badge badge-success bounceIn animation-delay4 pull-right">7</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">Setting</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="lockscreen.html" class="pull-right font-18"><i class="ion-log-out"></i></a>
+                </div>
+            </div><!-- sidebar-inner -->
+        </aside>
+
+        <div class="main-container padding-md">
+            <div ui-view="main-page"></div>
+        </div><!-- /main-container -->
+
+
+    </div><!-- /wrapper -->
+
+    <a href="#" class="scroll-to-top hidden-print"><i class="fa fa-chevron-up fa-lg"></i></a>
+</div>
+
+

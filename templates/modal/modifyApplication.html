@@ -1,0 +1,108 @@
+
+    <div class="modal-header">
+        <div class="modal-title" id="modal-title">
+            修改设备报检信息
+            <span class="smart-widget-option" ng-click="$ctrl.cancel()">
+            <a class="widget-remove-option">
+                <i class="fa fa-times"></i>
+            </a>
+        </span>
+        </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="smart-widget">
+            <div class="smart-widget-inner">
+                <div class="smart-widget-body">
+                    <form id="formToggleLine" class="form-horizontal no-margin">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">产权备案编号</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control"
+                                       placeholder="请输入产权备案编号" ng-model="applicationModifyDetail.iprCode" id="iprCode">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <!-- 设备编号 -->
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">设备编号</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control"
+                                       placeholder="请输入设备编号" ng-model="applicationModifyDetail.deviceCode" id="deviceCode">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <!-- 设备名称 -->
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">设备名称</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control"
+                                       placeholder="请输入设备名称" ng-model="applicationModifyDetail.deviceName" id="deviceName">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <!-- 规格型号 -->
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">规格型号</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control"
+                                       placeholder="请输入设备编号" ng-model="applicationModifyDetail.specification" id="specification">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <!--所属工程-->
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">所属工程</label>
+                            <div class="col-lg-10">
+                                <ui-select ng-model="applicationModifyDetail.project" theme="bootstrap">
+                                    <ui-select-match placeholder="">{{applicationModifyDetail.project.name}}</ui-select-match>
+                                    <ui-select-choices repeat="item in engineeringList | filter: $select.search">
+                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <!--设备公司名-->
+                        <!--{{company}}-->
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">设备公司名</label>
+                            <div class="col-lg-10">
+                                <ui-select ng-model="applicationModifyDetail.applicationCompany" theme="bootstrap">
+                                    <ui-select-match placeholder="">{{applicationModifyDetail.applicationCompany.name}}</ui-select-match>
+                                    <ui-select-choices repeat="item in companyList | filter: $select.search">
+                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <!-- 申报人 -->
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">申报人</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control"
+                                       placeholder="请输入申报人" ng-model="applicationModifyDetail.declarant" id="declarant">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <!--设备类型-->
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">设备类型</label>
+                            <div class="col-lg-10">
+                                <ui-select ng-model="applicationModifyDetail.deviceType" theme="bootstrap">
+                                    <ui-select-match placeholder="">{{applicationModifyDetail.deviceType.name}}</ui-select-match>
+                                    <ui-select-choices repeat="item in deviceType | filter: $select.search">
+                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                        <!--文件上传-->
+                        <!-- ngRepeat: data in uploadFileData -->
+                        <div class="modal-footer">
+                            <div class="col-lg-12">
+                                <button class="btn btn-success btn-lg btn-block" ng-click="$ctrl.ok()">确定</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
