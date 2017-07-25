@@ -1,0 +1,106 @@
+<div class="smart-widget">
+    <div class="smart-widget-header">
+        报告详情
+        <span class="smart-widget-option" ng-click="cancel()">
+            <a class="widget-remove-option">
+                <i class="fa fa-times"></i>
+            </a>
+        </span>
+    </div>
+    <div class="smart-widget-inner">
+        <div class="smart-widget-body">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="设备报检申请">
+                    <form id="formToggleLine" class="form-horizontal no-margin">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">产权备案编号</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.iprCode"></span>
+                            </div>
+                        </div>
+                        <!-- 设备编号 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">设备编号</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.deviceCode"></span>
+                            </div>
+                        </div>
+                        <!-- 设备名称 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">设备名称</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.deviceName"></span>
+                            </div>
+                        </div>
+                        <!-- 规格型号 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">规格型号</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.specification"></span>
+                            </div>
+                        </div>
+                        <!--所属工程-->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">所属工程</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.project.name"></span>
+                            </div>
+                        </div>
+                        <!--设备公司名-->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">设备公司名</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.applicationCompany.name"></span>
+                            </div>
+                        </div>
+                        <!-- 申报人 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">申报人</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.declarant"></span>
+                            </div>
+                        </div>
+                        <!-- 申报时间 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">申报时间</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.createTime| date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                        <!-- 图片 -->
+                        <div class="form-group" ng-repeat="key in applicationDetailAll.materialFiles">
+                            <label class="col-lg-3 control-label">{{key.name}}</label>
+                            <div class="col-lg-9">
+                                <img ngf-src="key.url" src="" alt="" class="img-responsive" style="width: 150px;height: 200px;border: 1px solid #ccc;">
+                            </div>
+                        </div>
+                    </form>
+                </uib-tab>
+                <uib-tab index="1" heading="检验单位审核">
+                    <form id="formToggleLine1" class="form-horizontal no-margin">
+                        <!-- 审核人 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">审核人</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="auditDetail.accepter.username"></span>
+                            </div>
+                        </div>
+
+                        <!-- 审核时间 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">审核时间</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="auditDetail.createTime| date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                    </form>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

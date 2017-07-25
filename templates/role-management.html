@@ -1,96 +1,84 @@
 
 
+<div class="modal-demo">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h5 class="col-md-11 modal-title " id="modal-title">添加管理员信息</h5>
+            <a ng-click="cancel()" style="cursor: pointer"> <i class="col-md-1 fa fa-times"></i></a>
+
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">角色名</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入角色名" ng-model="roleName">
+            </div>
+            <div class="form-group">
+                <div style="margin-left: 20px">
+                    <label >权限</label>
+                </div>
+                <div class="col-lg-12">
+                    <div class="col-lg-4" ng-repeat="permissions in items">
+                        <input type="checkbox" ng-model="permissions.ischecked">{{permissions.name}}
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button ng-click="addRole()" type="button" class="btn btn-success col-md-12 btn-lg">添加</button>
+        </div>
+    </script>
+</div>
+
+
+
+
+<div class="modal-demo">
+    <script type="text/ng-template" id="myModalContent1.html">
+        <div class="modal-header">
+            <h5 class="col-md-11 modal-title ">添加管理员信息</h5>
+            <a ng-click="cancel()" style="cursor: pointer"> <i class="col-md-1 fa fa-times"></i></a>
+
+        </div>
+        <div class="modal-body" >
+            <div class="form-group">
+                <label for="exampleInputEmail1">角色名</label>
+                <input type="text" ng-model="rolename" class="form-control"  placeholder="请输入角色名" ng-model="roleName">
+            </div>
+            <div class="form-group">
+                <div style="margin-left: 20px">
+                    <label >权限</label>
+                </div>
+                <div class="col-lg-12">
+                    <div class="col-lg-4" ng-repeat="permissions in items">
+                        <input type="checkbox" ng-model="permissions.ischecked">{{permissions.name}}
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button ng-click="addRole()" type="button" class="btn btn-success col-md-12 btn-lg">添加</button>
+        </div>
+    </script>
+</div>
+
+
 
 
 <div class="padding-md">
     <h3 class="header-text m-bottom-sm">
         角色
     </h3>
-
-
-
-<div style="float: right;margin-top: 2px;margin-right: 15px">
-
-    <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#myModal">
-        <span class="fa fa-plus fa-lg" aria-hidden="true"></span> 添加</button>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h5 class="modal-title" id="myModalLabel">添加管理员信息</h5>
-            </div>
-            <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">角色名</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入角色名">
-                    </div>
-
-            </div>
-            <hr style="width: 100%;margin-top: 0">
-                    <div class="form-group">
-                        <div style="margin-left: 20px">
-                            <label >权限</label>
-                        </div>
-
-                        <div class="col-lg-10">
-                            <div class="col-lg-4">
-                                <input type="checkbox">    设备检验申请
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">设备类型管理
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">角色管理
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">安全检验合格证
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">检验报告复检
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">检验单位审核
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">检验单位检验准备
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">现场检验
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">检验报告
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">单位管理
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">人员管理
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">工程管理
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="checkbox">管理员管理
-                            </div>
-                        </div>
-
-                    </div>
-
-            <div style="clear: both"></div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success col-lg-12 btn-lg">确定</button>
-            </div>
-        </div>
+    <div style="float: right;margin-top: 2px;margin-right: 15px">
+        <button type="button" class="btn btn-sm btn-success" ng-click="openModifyModal()">
+            <span class="fa fa-plus fa-lg" aria-hidden="true"></span> 添加
+        </button>
     </div>
-</div>
-<div style="clear: both"></div>
-    <br>
 
+
+    <div style="clear: both"></div>
+    <br>
     <div class="smart-widget">
         <div class="smart-widget-header">
             角色信息列表
@@ -107,34 +95,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>总经理</td>
+                <tr ng-repeat="role in newRoleManagementArray">
+                    <td>{{role.name}}</td>
                     <td>
-                        <span class="fa fa-pencil-square-o fa-lg btn btn-primary marginTB-xs"></span>
-                        <span class="fa fa-trash fa-lg btn  btn-danger marginTB-xs"></span>
+                        <span class="fa fa-pencil-square-o fa-lg btn btn-primary marginTB-xs" ng-click="openModifyModal1($index)"></span>
+                        <span class="fa fa-trash fa-lg btn  btn-danger marginTB-xs" ng-click="deleterole($index)"></span>
                     </td>
-                </tr>
-                <tr>
-                    <td>总经理</td>
-                    <td></td>
                 </tr>
                 </tbody>
             </table>
-        </div><!-- ./smart-widget-inner -->
+            <div style="float: right" ng-controller="roleManagementCtrl">
+
+                <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+
+            </div>
+        </div>
     </div>
+</div>
 
 
-
-<!-- Small modal -->
-
-
-<!-- Delete Widget Confirmation -->
-
-
-
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 
 
 

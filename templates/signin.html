@@ -1,3 +1,4 @@
+<div cg-busy="{promise:myPromise,message:'Loading......',backdrop:true,delay:200,minDuration:2000,wrapperClass:'class1'}">
 <div class="overflow-hidden light-background">
     <div class="wrapper no-navigation preload">
         <div class="sign-in-wrapper">
@@ -6,15 +7,22 @@
                     <i class="fa  m-right-xs"></i> 建筑设备报检 <br><strong class="text-skin">后台管理系统</strong>
                 </div>
 
-                <form>
+                <form angular-validator-submit="adminland()" name="myForm"  class="form-horizontal" novalidate angular-validator>
                     <div class="form-group m-bottom-md">
-                        <input type="text" class="form-control" placeholder="用户名">
+                        <input type="text" class="form-control" ng-model="username" placeholder="用户名" id="usrname" name="usrname" required
+                               validate-on="blur"
+                               validate-on="dirty"
+                               required-message="'用户名不能为空'">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="密码">
+                        <input type="password" class="form-control" ng-model="password" placeholder="密码" id="password" name="password" required
+                               validate-on="blur"
+                               validate-on="dirty"
+                               required-message="'密码不能为空'">
                     </div>
-                    <div class="m-top-md p-top-sm">
-                        <a href="#!/main" class="btn btn-success block">登录</a>
+
+                    <div class="m-top-md p-top-sm form-group">
+                        <button class="btn btn-success form-control">登录</button>
                     </div>
                 </form>
             </div><!-- ./sign-in-inner -->
@@ -22,5 +30,5 @@
     </div><!-- /wrapper -->
 
     <a href="" id="scroll-to-top" class="hidden-print"><i class="icon-chevron-up"></i></a>
-
+</div>
 </div>

@@ -1,0 +1,22 @@
+
+
+        <div class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" show-button-bar="true" ng-model="searchData.startDate" placeholder="开始时间" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" current-text="今天" clear-text="清空" close-text="关闭" />
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar-plus-o"></i></button>
+          </span>
+        </div>
+
+        <div class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup show-button-bar="true" ng-model="searchData.endDate" placeholder="结束时间" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" current-text="今天" clear-text="清空" close-text="关闭" />
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar-plus-o"></i></button>
+          </span>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control"
+                   ng-model="searchData.keywords" placeholder="请输入要搜索的关键字">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-success" ng-click="onLog()">搜索</button>
+            </div>
+        </div>

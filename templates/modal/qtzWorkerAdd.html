@@ -1,0 +1,202 @@
+<!-- Modal -->
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">添加管理员信息
+    </h4>
+</div>
+
+
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0px">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class="control-label">用户名</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="userName"
+                                   class=" form-control ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
+                                   placeholder="请输入用户名" ng-model="adminData.username">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">密码</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="password" id="password"
+                                   class="form-control ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
+                                   placeholder="请输入密码" ng-model="adminData.password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">性别</label>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <select class="form-control ">
+                                <option value=""selected></option>
+                                <option value="">男</option>
+                                <option value="">女</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">身份证号码</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入身份证号码">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">作业类别
+                            </label>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <select class="form-control ">
+                                <option value="">检验人员</option>
+                                <option value="">塔机司机</option>
+                                <option value=""selected>塔机索工</option>
+                                <option value="">安全员</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">资格证书编号</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入资格证书编号">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">工作单位
+                            </label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入工作单位
+">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">资格证书
+
+                            </label>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="button" ngf-select ngf-pattern="'image/*'"
+                                 ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                                 ng-change="updateImgChange()">(文件最大为1M)
+
+                            </div>
+
+                            <input type="file" ngf-select=""
+                                   ng-model="engineeringData.constructionLicenseFile"
+                                   ng-change="updateImgChange()" ngf-multiple="false"
+                                   class="ng-pristine ng-untouched ng-valid ng-empty">
+                            <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                                 src="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">身份证
+
+                            </label>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="button" ngf-select ngf-pattern="'image/*'"
+                                 ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                                 ng-change="updateImgChange()">(文件最大为1M)
+
+                            </div>
+
+                            <input type="file" ngf-select=""
+                                   ng-model="engineeringData.constructionLicenseFile"
+                                   ng-change="updateImgChange()" ngf-multiple="false"
+                                   class="ng-pristine ng-untouched ng-valid ng-empty">
+                            <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                                 src="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <button class="btn btn-success btn-lg btn-block" ng-click="onConfirmButtonClick()">
+                            确定
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+

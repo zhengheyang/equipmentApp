@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h3 class="header-text m-bottom-sm">检验单位
 
-</body>
-</html>
+    </h3>
+    <div style="float: right;margin-top: 2px;margin-right: 15px">
+
+
+        <button class="btn  btn-sm btn-success " data-toggle="modal" data-target="#myModal"
+                ng-click="addUnitClick()"><span class="fa fa-plus fa-lg"></span>&nbsp;添加
+        </button>
+    </div>
+
+
+    <div class="smart-widget widget-purple" style="display: inline-block;width: 100%;height: 100%">
+
+        <div class="panel-body table-responsive" style="min-height: 340px;">
+
+
+            <!-- Button trigger modal -->
+
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>单位名称</th>
+                    <th>公司类别</th>
+                    <th>单位所在地</th>
+                    <th>资质证书编号</th>
+                    <th>法定代表人</th>
+                    <th>法定代表人联系电话</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <tr ng-repeat="unit in newInstallUnitArray" >
+                    <td>{{unit.name}}</td>
+                    <td>{{unit.companyType | companyType}}</td>
+                    <td>{{unit.address}}</td>
+                    <td>{{unit.businessLicenseCode}}</td>
+                    <td>{{unit.legalRepresentative}}</td>
+                    <td>{{unit.legalRepresentativePhone}}</td>
+                    <td>
+                        <span class="fa fa-pencil-square-o fa-lg btn btn-primary marginTB-xs" title="编辑"
+                              ng-click="updateUnitClick($index)"></span>
+                        <span class="fa fa-trash fa-lg btn  btn-danger" title="删除"
+                              ng-click="deleteInstallUnit($index)"></span>
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+

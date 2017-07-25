@@ -1,3 +1,4 @@
+<div cg-busy="{promise:myPromise,message:'Loading......',backdrop:true,delay:200,minDuration:3000,wrapperClass:'class1'}">
 <div class="overflow-hidden">
     <div class="wrapper preload">
         <header class="top-nav">
@@ -37,7 +38,7 @@
                     <div class="pull-right m-right" ng-click="loginOut()"
                          style="font-family: 微软雅黑;line-height: 52px;display: block;margin-right: 15px;float: right">
                         <a type="button" href="https://fir.im/bdm7" target="_blank" class="btn btn-link">下载手机端App</a>
-                        <button type="button" class="btn btn-link" ng-click="onExitClick()">退出</button>
+                        <button type="button" class="btn btn-link" ng-click="exitApp()">退出</button>
                     </div>
 
                 </div>
@@ -59,10 +60,6 @@
 									</span>
                             </a>
                             <ul class="submenu bg-palette4">
-                                <li><a href="#!/main/page1"><span class="submenu-label">test1</span></a></li>
-                                <li><a href="#!/main/page2"><span class="submenu-label">test2</span></a></li>
-                                <li><a href="#!/main/page3"><span class="submenu-label">test3</span></a></li>
-                                <li><a href="#!/main/page4"><span class="submenu-label">test4</span></a></li>
                                 <li><a href="#!/main/engineering-service"><span class="submenu-label">工程信息维护</span></a></li>
 
                                 <li class="openable bg-palette2">
@@ -97,7 +94,7 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="#!/main/equitment-service"><span class="submenu-label">设备类型管理</span></a></li>
+                                <li><a href="#!/main/equipment-service"><span class="submenu-label">设备类型管理</span></a></li>
                             </ul>
                         </li>
                         <li class="openable bg-palette4">
@@ -114,11 +111,11 @@
                             <ul class="submenu">
                                 <li><a href="#!/main/inspection-application"><span class="submenu-label">设备报检申请</span></a></li>
                                 <li><a href="#!/main/inspection-unit-audit"><span class="submenu-label">检验单位审核</span></a></li>
-                                <li><a href="#"><span class="submenu-label">检验单位检验准备</span></a></li>
-                                <li><a href="#"><span class="submenu-label">现场检验</span></a></li>
-                                <li><a href="#"><span class="submenu-label">检验报告</span></a></li>
-                                <li><a href="#"><span class="submenu-label">检验报告复检</span></a></li>
-                                <li><a href="#"><span class="submenu-label">安全检验合格证</span></a></li>
+                                <li><a href="#!/main/detection-prepare"><span class="submenu-label">检验单位检验准备</span></a></li>
+                                <li><a href="#!/main/site-inspection"><span class="submenu-label">现场检验</span></a></li>
+                                <li><a href="#!/main/inspection-report"><span class="submenu-label">检验报告</span></a></li>
+                                <li><a href="#!/main/report-recheck"><span class="submenu-label">检验报告复检</span></a></li>
+                                <li><a href="#!/main/certificate"><span class="submenu-label">安全检验合格证</span></a></li>
                             </ul>
                         </li>
                         <li class="openable bg-palette1">
@@ -184,4 +181,4 @@
     <a href="#" class="scroll-to-top hidden-print"><i class="fa fa-chevron-up fa-lg"></i></a>
 </div>
 
-
+</div>

@@ -1,0 +1,120 @@
+
+<div class="smart-widget">
+    <div class="smart-widget-header">
+        安全检验合格证打印
+        <span class="smart-widget-option" ng-click="cancel()">
+            <a class="widget-remove-option">
+                <i class="fa fa-times"></i>
+            </a>
+        </span>
+    </div>
+    <div style="padding: 15px 15px 15px 15px">
+    <div style="background-color: gray;width:566px;height: 404px;" >
+
+        <!--startprint-->
+
+    <div id="printArea">
+        <div style="font-family: 微软雅黑,serif;width: 844px;height: 404px;position:relative;transform: scale(0.6718,0.6718);transform-origin:0px 0px">
+            <!--头部文字-->
+            <div>
+
+                <img src="img/head.png" style="left:26px;width:792px;height:160px;position: absolute;">
+
+            </div>
+
+            <!--内容部分-->
+            <div>
+                <img src="img/yellow.png"
+                     style="top:160px;left:26px;width:792px;height:330px;position: absolute;">
+                <!--第一排-->
+                <div style="top:200px;left:52px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                    报告编号
+                </div>
+                <div style="top:201px;left:170px;font-size:24px;color:#111111;position: absolute;" class="ng-binding"
+                    >{{recheckConclusionDetailAll.conclusion.code}}
+                </div>
+                <div style="top:200px;left:536px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                    设备品种
+                </div>
+                <div style="top:201px;left:650px;font-size:24px;color:#111111;position: absolute;" class="ng-binding">
+                    暂无
+                </div>
+
+                <!--第二排-->
+
+                <div style="top:252px;left:52px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                    工程名称
+                </div>
+                <div style="top:253px;left:170px;font-size:24px;color:#111111;position: absolute;" class="ng-binding"
+               >{{recheckConclusionDetailAll.application.project.name}}
+
+                </div>
+                <div style="top:252px;left:536px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                    设备型号
+                </div>
+                <div style="top:253px;left:650px;font-size:24px;color:#111111;position: absolute;" class="ng-binding"
+                    >{{recheckConclusionDetailAll.application.deviceCode}}
+
+                </div>
+
+            </div>
+
+            <!--第三排-->
+            <div style="top:304px;left:52px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                使用单位
+            </div>
+            <div style="top:305px;left:170px;font-size:24px;color:#111111;position: absolute;" class="ng-binding"
+           >{{recheckConclusionDetailAll.application.applicationCompany.companyType}}
+            </div>
+            <div style="top:304px;left:536px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                产品编号
+            </div>
+            <div style="top:305px;left:650px;font-size:24px;color:#111111;position: absolute;" class="ng-binding"
+            >{{recheckConclusionDetailAll.conclusion.factoryNumber}}
+            </div>
+
+            <!--第四排-->
+            <div style="top:358px;left:52px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                生产厂家
+            </div>
+            <div style="top:359px;left:170px;font-size:24px;color:#111111;position: absolute;" class="ng-binding"
+                 >{{recheckConclusionDetailAll.conclusion.factory}}
+            </div>
+            <div style="top:358px;left:536px;font-size:26px;color:#111111;position: absolute;font-weight: bold">
+                检验日期
+            </div>
+            <div style="top:359px;left:650px;font-size:24px;color:#111111;position: absolute;" class="ng-binding"
+                 >{{recheckConclusionDetailAll.recheckConclusion.recheckDate |  date:'yyyy-MM-dd'}}
+
+            </div>
+
+
+            <div>
+                <!--<img src="green.png" style="top:490px;left:26px;width:792px;height:109px;position: absolute;"></img>-->
+                <img src="img/foot.png"
+                     style="top:490px;left:26px;width:792px;height:109px;position: absolute;">
+                <img id="certificateImg"
+                     ng-src="http://pan.baidu.com/share/qrcode?w=162&amp;h=162&amp;url=http://www.bigbug.tech:8080/supervise-mobile-portal%23main%3fid=6"
+                     style="top:420px;left:636px;width:144px;height:144px;position: absolute;"
+                     src="http://pan.baidu.com/share/qrcode?w=162&amp;h=162&amp;url=http://www.bigbug.tech:8080/supervise-mobile-portal%23main%3fid=6">
+                <!--<div style="left:82px;width:740px;height:108px;position: absolute;line-height: 100px;letter-spacing: 52px;font-size: 70px;color: #fff">-->
+                <!--安全检验合格-->
+                <!--</div>-->
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+        <!--endprint-->
+    <div class="modal-footer">
+        <div class="col-lg-6">
+            <button class="btn btn-success btn-lg btn-block" ng-click="printpage()">确定打印</button>
+        </div>
+        <div class="col-lg-6">
+            <button class="btn btn-success btn-lg btn-block" ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+</div>

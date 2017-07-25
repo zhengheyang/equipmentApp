@@ -1,0 +1,356 @@
+<div class="smart-widget">
+    <div class="smart-widget-header">
+        设备检测报告详情
+        <span class="smart-widget-option" ng-click="cancel()">
+            <a class="widget-remove-option">
+                <i class="fa fa-times"></i>
+            </a>
+        </span>
+    </div>
+    <div class="smart-widget-inner">
+        <div class="smart-widget-body">
+            <form id="formToggleLine" name="myForm"  angular-validator-submit="ok()"  class="form-horizontal no-margin"  novalidate angular-validator>
+                <div class="form-group">
+                    <!-- 设备检验报告编号 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">设备检验报告编号</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.code" id="code" name="code"
+                                   required-message="'设备检验报告编号不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 设备安装地点 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">设备安装地点</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.deviceInstallAddress" id="deviceInstallAddress" name="deviceInstallAddress"
+                                   required-message="'设备安装地点不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 出厂编号 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">出厂编号</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.factoryNumber" id="factoryNumber" name="factoryNumber"
+                                   required-message="'出厂编号不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 安装许可证编号 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">安装许可证编号</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.installLicenseCode" id="installLicenseCode" name="installLicenseCode"
+                                   required-message="'安装许可证编号不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 生产厂家 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">生产厂家</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.factory" id="factory" name="factory"
+                                   required-message="'生产厂家不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 制造许可证编号 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">制造许可证编号</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.manufacturingLicenseNumber"
+                                   id="manufacturingLicenseNumber" name="manufacturingLicenseNumber"
+                                   required-message="'制造许可证编号不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 出厂日期 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">出厂日期</label>
+                        <date-picker hero="factoryDate"></date-picker>
+                    </div>
+
+                    <!-- 使用年限 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">使用年限</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.serviceLife" id="serviceLife" name="serviceLife"
+                                   required-message="'使用年限不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 安装高度 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">安装高度</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.mountingHeight" id="mountingHeight" name="mountingHeight"
+                                   required-message="'安装高度不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 最大额定起重量 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">最大额定起重量</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.maxSpecifiedWeight" id="maxSpecifiedWeight" name="maxSpecifiedWeight"
+                                   required-message="'最大额定起重量不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 最大起重力矩 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">最大起重力矩</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.maxLoadMoment" id="maxLoadMoment" name="maxLoadMoment"
+                                   required-message="'最大起重力矩不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+
+                    <!-- 起升速度 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">起升速度</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.liftingSpeed" id="liftingSpeed" name="liftingSpeed"
+                                   required-message="'起升速度不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 最大幅度 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">最大幅度</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.maxRadius" id="maxRadius" name="maxRadius"
+                                   required-message="'最大幅度不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 安装幅度 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">安装幅度</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.installRadius" id="installRadius" name="installRadius"
+                                   required-message="'安装幅度不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 变幅速度 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">变幅速度</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.derrickingSpeed" id="derrickingSpeed" name="derrickingSpeed"
+                                   required-message="'变幅速度不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 大车运行速度 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">大车运行速度</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.gantryTravelingSpeed" id="gantryTravelingSpeed" name="gantryTravelingSpeed"
+                                   required-message="'大车运行速度不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 附着道数 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">附着道数</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.attachChannelCount" id="attachChannelCount" name="attachChannelCount"
+                                   required-message="'附着道数不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 检验依据 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">检验依据</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.inspectionStandard" id="inspectionStandard" name="inspectionStandard"
+                                   required-message="'检验依据不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 主要检验仪器 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">主要检验仪器</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.mainInspectionInstrument" id="mainInspectionInstrument" name="mainInspectionInstrument"
+                                   required-message="'主要检验仪器不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 检验结论 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">检验结论</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.inspectionConclusion" id="inspectionConclusion" name="inspectionConclusion"
+                                   required-message="'检验结论不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 备注 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">备注</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.remark" id="remark" name="remark"
+                                   required-message="'备注不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 下次检验日期 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">下次检验日期</label>
+                        <date-picker hero="nextInspectionDate"></date-picker>
+                    </div>
+                    <!-- 审核人员 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">审核人员</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.auditOfficer" id="auditOfficer" name="auditOfficer"
+                                   required-message="'审核人员不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 审核日期 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">审核日期</label>
+                        <date-picker hero="auditDate"></date-picker>
+                    </div>
+                    <!-- 批准人员 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">批准人员</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.authorizingOfficer" id="authorizingOfficer" name="authorizingOfficer"
+                                   required-message="'批准人员不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 批准日期 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">批准日期</label>
+                        <date-picker hero="authorizingDate"></date-picker>
+                    </div>
+                    <!-- 检验机构核准证号 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">检验机构核准证号</label>
+                        <div>
+                            <input type="text" class="form-control"
+                                   ng-model="conclusionDetailAll.inspectionUnitCertificate"
+                                   id="inspectionUnitCertificate" name="inspectionUnitCertificate"
+                                   required-message="'检验机构核准证号不能为空'"
+                                   validate-on="blur"
+                                   validate-on="dirty"
+                                   required>
+                        </div>
+                    </div>
+                    <!-- 签发日期 -->
+                    <div class="col-sm-4 col-xs-6">
+                        <label class="control-label">签发日期</label>
+                        <date-picker hero="issueDate"></date-picker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- 检验报告封面 -->
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <label class="control-label">检验报告封面</label>
+                        <div>
+                            <input type="file" ngf-select ng-model="conclusionDetailAll.inspectionReportConclusionPageFilePath" name="file"
+                                   accept="image/*" ngf-max-size="2MB" required
+                                   ngf-model-invalid="errorFile" class="ng-pristine ng-untouched ng-valid ng-empty">
+                            <img class="img-responsive"
+                                 ngf-src="conclusionDetailAll.inspectionReportConclusionPageFilePath" src=""
+                                 style="width: 150px;height: 200px;border: 1px solid #ccc;">
+                        </div>
+                    </div>
+                        <!-- 检验报告结论页 -->
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="control-label">检验报告结论页</label>
+                            <div>
+                                <input type="file" ngf-select ng-model="conclusionDetailAll.inspectionReportCoverPageFilePath" name="file"
+                                       accept="image/*" ngf-max-size="2MB" required
+                                       ngf-model-invalid="errorFile" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                <img class="img-responsive"
+                                     ngf-src="conclusionDetailAll.inspectionReportCoverPageFilePath" src=""
+                                     style="width: 150px;height: 200px;border: 1px solid #ccc;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <button class="btn btn-success btn-lg btn-block">确定</button>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>

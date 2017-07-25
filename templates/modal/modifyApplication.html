@@ -1,108 +1,132 @@
-
-    <div class="modal-header">
-        <div class="modal-title" id="modal-title">
-            修改设备报检信息
-            <span class="smart-widget-option" ng-click="$ctrl.cancel()">
+<div class="smart-widget">
+    <div class="smart-widget-header">
+        修改设备报检信息
+        <span class="smart-widget-option" ng-click="cancel()">
             <a class="widget-remove-option">
                 <i class="fa fa-times"></i>
             </a>
         </span>
+    </div>
+    <div class="smart-widget-inner">
+        <div class="smart-widget-body">
+            <form id="formToggleLine" name="myForm" class="form-horizontal no-margin" novalidate angular-validator>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">产权备案编号</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control"
+                               placeholder="请输入产权备案编号" ng-model="applicationModifyDetail.iprCode" id="iprCode" name="iprCode"
+                               required-message="'产权备案编号不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               require>
+                    </div>
+                </div>
+                <!-- 设备编号 -->
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">设备编号</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control"
+                               placeholder="请输入设备编号" ng-model="applicationModifyDetail.deviceCode" id="deviceCode" name="deviceCode"
+                               required-message="'设备编号不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               require>
+                    </div>
+                </div>
+                <!-- 设备名称 -->
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">设备名称</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control"
+                               placeholder="请输入设备名称" ng-model="applicationModifyDetail.deviceName" id="deviceName" name="deviceName"
+                               required-message="'设备名称不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               require>
+                    </div>
+                </div>
+                <!-- 规格型号 -->
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">规格型号</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control"
+                               placeholder="请输入设备规格型号" ng-model="applicationModifyDetail.specification"
+                               id="specification" name="specification"
+                               required-message="'规格型号不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               require>
+                    </div>
+                </div>
+                <!--所属工程-->
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">所属工程</label>
+                    <div class="col-lg-9">
+                        <ui-select ng-model="applicationModifyDetail.project" theme="bootstrap">
+                            <ui-select-match placeholder="">{{applicationModifyDetail.project.name}}</ui-select-match>
+                            <ui-select-choices repeat="item in engineeringList | filter: $select.search">
+                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <!--设备公司名-->
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">设备公司名</label>
+                    <div class="col-lg-9">
+                        <ui-select ng-model="applicationModifyDetail.applicationCompany" theme="bootstrap">
+                            <ui-select-match placeholder="">{{applicationModifyDetail.applicationCompany.name}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in companyList | filter: $select.search">
+                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <!-- 申报人 -->
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">申报人</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control"
+                               placeholder="请输入申报人" ng-model="applicationModifyDetail.declarant" id="declarant" name="declarant"
+                               required-message="'申报人不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               require>
+                    </div>
+                </div>
+                <!--设备类型-->
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">设备类型</label>
+                    <div class="col-lg-9">
+                        <ui-select ng-model="applicationModifyDetail.deviceType" theme="bootstrap">
+                            <ui-select-match placeholder="">{{applicationModifyDetail.deviceType.name}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in deviceType | filter: $select.search">
+                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <!--上传文件-->
+                <div class="form-group" ng-repeat="data in applicationModifyDetail.deviceType.applicationMaterials">
+                    <label class="col-lg-3 control-label">{{data.name}}</label>
+                    <div class="col-lg-9">
+                        <input type="file" ngf-select ng-model="files[$index]" name="file"
+                               accept="image/*" ngf-max-size="2MB" required
+                               ngf-model-invalid="errorFile">
+                        <img ngf-src="files[$index]" src="" alt="" class="img-responsive" style="width: 150px;height: 200px;border: 1px solid #ccc;" >
+                        <div ng-repeat="file in applicationModifyDetail.applicationMaterialFiles" class="ng-scope">
+                            <img class="img-responsive" ng-if="file.name==data.name && files[$parent.$index]==null" ngf-src="file.url" style="width: 150px;height: 200px;border: 1px solid #ccc;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-lg-12">
+                        <button  class="btn btn-success btn-lg btn-block" ng-click="ok()">确定</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="modal-body" id="modal-body">
-        <div class="smart-widget">
-            <div class="smart-widget-inner">
-                <div class="smart-widget-body">
-                    <form id="formToggleLine" class="form-horizontal no-margin">
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">产权备案编号</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control"
-                                       placeholder="请输入产权备案编号" ng-model="applicationModifyDetail.iprCode" id="iprCode">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <!-- 设备编号 -->
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">设备编号</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control"
-                                       placeholder="请输入设备编号" ng-model="applicationModifyDetail.deviceCode" id="deviceCode">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <!-- 设备名称 -->
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">设备名称</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control"
-                                       placeholder="请输入设备名称" ng-model="applicationModifyDetail.deviceName" id="deviceName">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <!-- 规格型号 -->
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">规格型号</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control"
-                                       placeholder="请输入设备编号" ng-model="applicationModifyDetail.specification" id="specification">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <!--所属工程-->
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">所属工程</label>
-                            <div class="col-lg-10">
-                                <ui-select ng-model="applicationModifyDetail.project" theme="bootstrap">
-                                    <ui-select-match placeholder="">{{applicationModifyDetail.project.name}}</ui-select-match>
-                                    <ui-select-choices repeat="item in engineeringList | filter: $select.search">
-                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
-                                    </ui-select-choices>
-                                </ui-select>
-                            </div>
-                        </div>
-                        <!--设备公司名-->
-                        <!--{{company}}-->
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">设备公司名</label>
-                            <div class="col-lg-10">
-                                <ui-select ng-model="applicationModifyDetail.applicationCompany" theme="bootstrap">
-                                    <ui-select-match placeholder="">{{applicationModifyDetail.applicationCompany.name}}</ui-select-match>
-                                    <ui-select-choices repeat="item in companyList | filter: $select.search">
-                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
-                                    </ui-select-choices>
-                                </ui-select>
-                            </div>
-                        </div>
-                        <!-- 申报人 -->
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">申报人</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control"
-                                       placeholder="请输入申报人" ng-model="applicationModifyDetail.declarant" id="declarant">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <!--设备类型-->
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">设备类型</label>
-                            <div class="col-lg-10">
-                                <ui-select ng-model="applicationModifyDetail.deviceType" theme="bootstrap">
-                                    <ui-select-match placeholder="">{{applicationModifyDetail.deviceType.name}}</ui-select-match>
-                                    <ui-select-choices repeat="item in deviceType | filter: $select.search">
-                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
-                                    </ui-select-choices>
-                                </ui-select>
-                            </div>
-                        </div>
-                        <!--文件上传-->
-                        <!-- ngRepeat: data in uploadFileData -->
-                        <div class="modal-footer">
-                            <div class="col-lg-12">
-                                <button class="btn btn-success btn-lg btn-block" ng-click="$ctrl.ok()">确定</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+</div>

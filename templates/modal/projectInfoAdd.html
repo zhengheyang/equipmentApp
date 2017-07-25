@@ -1,0 +1,303 @@
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加工程信息
+                </h4>
+            </div>
+
+            <!-- 工程名称 -->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">工程名称</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入工程名称" ng-model="name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 施工许可证 -->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label" >施工许可证</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入施工许可证名称" ng-model="constructionLicenseCode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 项目负责人 -->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">项目负责人</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入项目负责人" ng-model="projectLeader">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 负责人联系电话 -->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">负责人联系电话</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入负责人联系电话" ng-model="projectLeaderPhone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 工程地址 -->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">工程地址</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入工程地址" ng-model="address">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 建筑面积-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">建筑面积</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入建筑面积" ng-model="floorage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 建筑高度-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">建筑高度</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入建筑高度" ng-model="height">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 工程申报人-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">工程申报人</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <input type="text" class="form-control "
+                                   placeholder="请输入工程申报人" ng-model="declarant">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 工程申报日期 -->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">工程申报日期</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <date-picker></date-picker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--施工总承包单位-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">施工总承包单位</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <ui-select  ng-model="primaryContractorCompany.selected" theme="bootstrap">
+                                <ui-select-match placeholder="请输入施工总承包单位">{{primaryContractorCompany.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in primaryContractorCompanyDetail | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--建设单位-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">建设单位</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <ui-select ng-model="constructionCompany.selected" theme="bootstrap" >
+                                <ui-select-match placeholder="请输入建设单位" >{{constructionCompany.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in constructionCompanyDetail | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--监理单位-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">监理单位</label>
+
+                        </div>
+                        <div class="col-sm-9">
+
+                            <ui-select  ng-model="supervisingCompany.selected" theme="bootstrap">
+                                <ui-select-match placeholder="请输入监理单位" >{{supervisingCompany.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in supervisingCompanyDetail | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--监管机构-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">监管机构</label>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <ui-select  ng-model="regulationCompany.selected" theme="bootstrap">
+                                <ui-select-match placeholder="请输入监管机构" >{{regulationCompany.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in regulationCompanyDetail | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--工程申报单位-->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">工程申报单位</label>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <ui-select  ng-model="declarationCompany.selected" theme="bootstrap">
+                                <ui-select-match placeholder="请输入工程申报单位">{{declarationCompany.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in declarationCompanyDetail | filter: $select.search">
+                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 施工许可证或相关文件 -->
+            <div class="modal-header">
+
+                <div class="form-group" style="margin-bottom: 0">
+                    <div class="row">
+                        <div class="col-sm-3 text-right" style="padding-top: 8px">
+                            <label class=" control-label">施工许可证或相关文件</label>
+
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="button" ngf-select ngf-pattern="'image/*'"
+                                 ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                                 ng-change="updateImgChange()">选择图片(文件最大为1M)
+
+                            </div>
+                            <img ngf-src="engineeringData.constructionLicenseFile" width="200" height="150">
+
+                            <input type="file" ngf-select=""
+                                   ng-model="engineeringData.constructionLicenseFile"
+                                   ng-change="updateImgChange()" ngf-multiple="false"
+                                   class="ng-pristine ng-untouched ng-valid ng-empty">
+                            <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                                 src="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+                <div class="col-lg-12">
+                    <button class="btn btn-success btn-lg btn-block" ng-click="onConfirmButtonClick()">确定
+                    </button>
+                </div>
+            </div>

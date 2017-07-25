@@ -1,0 +1,261 @@
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">添加单位信息
+
+    </h4>
+</div>
+
+<!-- 单位名称 -->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">单位名称</label>
+
+            </div>
+            <div class="col-sm-9">
+
+                <input type="text" class="form-control " ng-model="name" placeholder="请输入单位名称">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 企业性质-->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">企业性质
+                </label>
+
+            </div>
+            <div class="col-sm-9">
+
+                <ui-select  ng-model="items" theme="bootstrap">
+                    <ui-select-match placeholder="">{{items.companyType | companyType}}</ui-select-match>
+                    <ui-select-choices repeat="item in unitNature | filter: $select.search">
+                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 单位所在地 -->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">单位所在地</label>
+
+            </div>
+            <div class="col-sm-9">
+
+                <input type="text" class="form-control "
+                      ng-model="address" placeholder="请输入单位所在地">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 社会统一信用代码 -->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">社会统一信用代码</label>
+
+            </div>
+            <div class="col-sm-9">
+
+                <input type="text" class="form-control "
+                      ng-model="businessLicenseCode" placeholder="请输入社会统一信用代码">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 资质证书编号 -->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">资质证书编号</label>
+
+            </div>
+            <div class="col-sm-9">
+
+                <input type="text" class="form-control "
+                    ng-model="qualificationCertificateCode"   placeholder="请输入资质证书编号">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 安全生产许可证-->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">安全生产许可证</label>
+
+            </div>
+            <div class="col-sm-9">
+
+                <input type="text" class="form-control "
+                     ng-model="safetyProductionLicenseCode"  placeholder="请输入安全生产许可证">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 安全生产许可证有效期限 -->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">安全生产许可证有效期限</label>
+
+            </div>
+            <div class="col-sm-9">
+                          <date-picker hero="date"></date-picker>
+
+            </div>
+        </div>
+    </div>
+
+
+<!-- 法定代表人-->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">法定代表人</label>
+
+            </div>
+            <div class="col-sm-9">
+
+                <input type="text" class="form-control "
+                     ng-model="legalRepresentative"  placeholder="请输入法定代表人">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 法定代表人联系电话-->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">法定代表人联系电话</label>
+            </div>
+            <div class="col-sm-9">
+
+                <input type="text" class="form-control "
+                      ng-model="legalRepresentativePhone" placeholder="请输入法定代表人联系电话">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 营业执照
+-->
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">营业执照
+                </label>
+
+            </div>
+            <div class="col-sm-9">
+                <div class="button" ngf-select ngf-pattern="'image/*'"
+                     ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                     ng-change="updateImgChange()">(文件最大为1M)
+
+                </div>
+
+                <input type="file" ngf-select=""
+                       ng-model="engineeringData.constructionLicenseFile"
+                       ng-change="updateImgChange()" ngf-multiple="false"
+                       class="ng-pristine ng-untouched ng-valid ng-empty">
+                <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                     src="">
+            </div>
+        </div>
+    </div>
+</div>
+<!--资格证书文件-->
+
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">资格证书文件
+
+                </label>
+
+            </div>
+            <div class="col-sm-9">
+                <div class="button" ngf-select ngf-pattern="'image/*'"
+                     ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                     ng-change="updateImgChange()">(文件最大为1M)
+
+                </div>
+
+                <input type="file" ngf-select=""
+                       ng-model="engineeringData.constructionLicenseFile"
+                       ng-change="updateImgChange()" ngf-multiple="false"
+                       class="ng-pristine ng-untouched ng-valid ng-empty">
+                <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                     src="">
+            </div>
+        </div>
+    </div>
+</div>
+<!--安全生产许可证-->
+
+<div class="modal-header">
+
+    <div class="form-group" style="margin-bottom: 0">
+        <div class="row">
+            <div class="col-sm-3 text-right" style="padding-top: 8px">
+                <label class=" control-label">安全生产许可证
+
+
+                </label>
+
+            </div>
+            <div class="col-sm-9">
+                <div class="button" ngf-select ngf-pattern="'image/*'"
+                     ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                     ng-change="updateImgChange()">(文件最大为1M)
+
+                </div>
+
+                <input type="file" ngf-select=""
+                       ng-model="engineeringData.constructionLicenseFile"
+                       ng-change="updateImgChange()" ngf-multiple="false"
+                       class="ng-pristine ng-untouched ng-valid ng-empty">
+                <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                     src="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-header">
+    <div class="col-lg-12">
+        <button class="btn btn-success btn-lg btn-block" ng-click="onConfirmButtonClick()">确定
+        </button>
+    </div>
+</div>

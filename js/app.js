@@ -1,67 +1,48 @@
 /**
  * Created by zhyang on 17-6-30.
  */
-angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize','equimentApp.controller','equimentApp.services'])
-    .config(function ($stateProvider, $urlRouterProvider) {
+angular.module('equipmentApp',[
+    'ui.bootstrap',
+    'ui.router',
+    'ui.select',
+    'ngSanitize',
+    'cgBusy',
+    'equipmentApp.controller',
+    'equipmentApp.controllerGC',
+    'equipmentApp.controllerLJ',
+    'equipmentApp.services',
+    'equipmentApp.component',
+    'equipmentApp.filters',
+    'ngFileUpload',
+    'angularValidator'
+]).config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('signin',{
                 url:'/singnin',
-                templateUrl:'templates/signin.html'
+                templateUrl:'templates/signin.html',
+                controller:'singCtrl'
             })
             .state('main',{
                 url: '/main',
-                // abstract: true,
                 templateUrl: 'templates/main.html',
                 controller:'mainCtrl'
-            })
-            .state('main.page1', {
-                url: '/page1',
-                views: {
-                    'main-page': {
-                        templateUrl: 'templates/main-page1.html',
-                        // controller: 'page1Ctrl'
-                    }
-                }
-            })
-            .state('main.page2', {
-                url: '/page2',
-                views: {
-                    'main-page': {
-                        templateUrl: 'templates/main-page2.html',
-                        // controller: 'page2Ctrl'
-                    }
-                }
-            })
-            .state('main.page3', {
-                url: '/page3',
-                views: {
-                    'main-page': {
-                        templateUrl: 'templates/main-page3.html',
-                        // controller: 'page2Ctrl'
-                    }
-                }
-            })
-            .state('main.page4', {
-                url: '/page4',
-                views: {
-                    'main-page': {
-                        templateUrl: 'templates/main-page4.html',
-                    }
-                }
             })
             .state('main.engineering-service', {
                 url: '/engineering-service',
                 views: {
                     'main-page': {
                         templateUrl: 'templates/engineering-service.html',
+                        controller:'engineeringServiceCtrl'
                     }
                 }
             })
-            .state('main.equitment-service', {
-                url: '/equitment-service',
+            .state('main.equipment-service', {
+                url: '/equipment-service',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/equitment-service.html',
+                        templateUrl: 'templates/equipment-service.html',
+                        controller:'equipmentCtrl'
+
                     }
                 }
             })
@@ -70,6 +51,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/epc-unit.html',
+                        controller:'epcUnitCtrl'
                     }
                 }
             })
@@ -78,6 +60,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/inspection-person.html',
+                        controller:'inspectionPersonCtrl'
                     }
                 }
             })
@@ -86,6 +69,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/inspection-unit.html',
+                        controller:'inspectionUnitCtrl'
                     }
                 }
             })
@@ -94,6 +78,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/install-unit.html',
+                        controller:'installUnitCtrl'
                     }
                 }
             })
@@ -102,6 +87,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/other-unit.html',
+                        controller:'otherUnitCtrl'
                     }
                 }
             })
@@ -110,6 +96,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/property-unit.html',
+                        controller:'propertyUnitCtrl'
                     }
                 }
             })
@@ -118,7 +105,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/inspection-application.html',
-                        controller: 'inspectionApplicationCtrl'
+                        controller: 'inspectionApplicationCtrl',
                     }
                 }
             })
@@ -136,6 +123,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/qtz-driver.html',
+                        controller:'qtzDriverCtrl'
                     }
                 }
             })
@@ -144,6 +132,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/qtz-worker.html',
+                        controller:'qtzWorkerCtrl'
                     }
                 }
             })
@@ -152,6 +141,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/safety-officer.html',
+                        controller:'safetyCtrl'
                     }
                 }
             })
@@ -160,6 +150,7 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/role-management.html',
+                        controller: 'roleManagementCtrl'
                     }
                 }
             })
@@ -168,6 +159,52 @@ angular.module('equimentApp',['ui.bootstrap','ui.router','ui.select','ngSanitize
                 views: {
                     'main-page': {
                         templateUrl: 'templates/admin-management.html',
+                        controller:'adminManagementCtrl'
+                    }
+                }
+            })
+            .state('main.detection-prepare', {
+                url: '/detection-prepare',
+                views: {
+                    'main-page': {
+                        templateUrl: 'templates/detection-prepare.html',
+                        controller:'detectionPrepareCtrl'
+                    }
+                }
+            })
+            .state('main.certificate', {
+                url: '/certificate',
+                views: {
+                    'main-page': {
+                        templateUrl: 'templates/certificate.html',
+                        controller:'certificateCtrl'
+                    }
+                }
+            })
+            .state('main.inspection-report', {
+                url: '/inspection-report',
+                views: {
+                    'main-page': {
+                        templateUrl: 'templates/inspection-report.html',
+                        controller:'inspectionReportCtrl'
+                    }
+                }
+            })
+            .state('main.report-recheck', {
+                url: '/report-recheck',
+                views: {
+                    'main-page': {
+                        templateUrl: 'templates/report-recheck.html',
+                        controller:'reportRecheckCtrl'
+                    }
+                }
+            })
+            .state('main.site-inspection', {
+                url: '/site-inspection',
+                views: {
+                    'main-page': {
+                        templateUrl: 'templates/site-inspection.html',
+                        controller:'siteInspectionCtrl'
                     }
                 }
             })

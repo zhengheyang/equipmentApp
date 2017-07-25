@@ -1,14 +1,19 @@
+
 <h3 class="header-text m-bottom-sm"> 添加设备报检信息</h3>
 <div class="smart-widget">
     <div class="smart-widget-inner">
         <div class="smart-widget-body">
-            <form id="formToggleLine" class="form-horizontal no-margin">
+            <form angular-validator-submit="submitApplication()" name="myForm" class="form-horizontal"  novalidate angular-validator>
                 <div class="form-group">
                     <label class="col-lg-2 control-label">产权备案编号</label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control"
-                               placeholder="请输入产权备案编号" ng-model="applicationData.iprCode" id="iprCode">
-                        <span class="help-block"></span>
+                               placeholder="请输入产权备案编号"
+                               ng-model="applicationData.iprCode" id="iprCode" name="iprCode"
+                               required-message="'产权备案编号不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               required>
                     </div>
                 </div>
                 <!-- 设备编号 -->
@@ -16,8 +21,11 @@
                     <label class="col-lg-2 control-label">设备编号</label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control"
-                               placeholder="请输入设备编号" ng-model="applicationData.deviceCode" id="deviceCode">
-                        <span class="help-block"></span>
+                               placeholder="请输入设备编号"
+                               required-message="'设备编号不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                                ng-model="applicationData.deviceCode" id="deviceCode" name="deviceCode" required>
                     </div>
                 </div>
                 <!-- 设备名称 -->
@@ -25,8 +33,11 @@
                     <label class="col-lg-2 control-label">设备名称</label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control"
-                               placeholder="请输入设备名称" ng-model="applicationData.deviceName" id="deviceName">
-                        <span class="help-block"></span>
+                               placeholder="请输入设备名称"
+                               required-message="'设备名称不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                                ng-model="applicationData.deviceName" id="deviceName" name="deviceName" required>
                     </div>
                 </div>
                 <!-- 规格型号 -->
@@ -34,8 +45,11 @@
                     <label class="col-lg-2 control-label">规格型号</label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control"
-                               placeholder="请输入设备编号" ng-model="applicationData.specification" id="specification">
-                        <span class="help-block"></span>
+                               placeholder="请输入设备编号"
+                               required-message="'规格型号不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               ng-model="applicationData.specification" id="specification" name="specification" required>
                     </div>
                 </div>
                 <!--所属工程-->
@@ -50,13 +64,11 @@
                         </ui-select>
                     </div>
                 </div>
-
                 <!--设备公司名-->
-                <!--{{company}}-->
                 <div class="form-group">
                     <label class="col-lg-2 control-label">设备公司名</label>
                     <div class="col-lg-10">
-                        <ui-select ng-model="companys.company" theme="bootstrap">
+                        <ui-select ng-model="companys.company" theme="bootstrap" type="text" required>
                             <ui-select-match placeholder="">{{companys.company.name}}</ui-select-match>
                             <ui-select-choices repeat="item in companyList | filter: $select.search">
                                 <div ng-bind-html="item.name | highlight: $select.search"></div>
@@ -69,8 +81,11 @@
                     <label class="col-lg-2 control-label">申报人</label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control"
-                               placeholder="请输入申报人" ng-model="applicationData.declarant" id="declarant">
-                        <span class="help-block"></span>
+                               placeholder="请输入申报人"
+                               required-message="'申报人不能为空'"
+                               validate-on="blur"
+                               validate-on="dirty"
+                               ng-model="applicationData.declarant" id="declarant" name="declarant" required>
                     </div>
                 </div>
                 <!--设备类型-->
@@ -78,24 +93,30 @@
                     <label class="col-lg-2 control-label">设备类型</label>
                     <div class="col-lg-10">
                         <ui-select ng-model="deviceTypes.type" theme="bootstrap">
-                            <ui-select-match placeholder="">{{deviceTypes.type.name}}</ui-select-match>
+                            <ui-select-match placeholder="" >{{deviceTypes.type.name}}</ui-select-match>
                             <ui-select-choices repeat="item in deviceType | filter: $select.search">
                                 <div ng-bind-html="item.name | highlight: $select.search"></div>
                             </ui-select-choices>
                         </ui-select>
                     </div>
                 </div>
-                <!--文件上传-->
-                <!-- ngRepeat: data in uploadFileData -->
-
+                <!--上传文件-->
+                <div class="form-group" ng-repeat="key in deviceTypes.type.applicationMaterials">
+                    <label class="col-lg-2 control-label">{{key.name}}</label>
+                    <div class="col-lg-10">
+                        <input type="file" ngf-select ng-model="key.picFile" name="file"
+                               accept="image/*" ngf-max-size="2MB" required required-message="'图片不能为空'"
+                               ngf-model-invalid="errorFile">
+                        <img ngf-src="key.picFile" src="" alt="" class="img-responsive" style="width: 150px;height: 200px;border: 1px solid #ccc;">
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-lg-12">
-                        <button class="btn btn-success btn-lg btn-block" ng-click="submitApplication()">确定</button>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">确定</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 

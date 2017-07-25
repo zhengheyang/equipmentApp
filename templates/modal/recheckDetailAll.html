@@ -1,0 +1,459 @@
+<div class="smart-widget">
+    <div class="smart-widget-header">
+        报告详情
+        <span class="smart-widget-option" ng-click="cancel()">
+            <a class="widget-remove-option">
+                <i class="fa fa-times"></i>
+            </a>
+        </span>
+    </div>
+    <div class="smart-widget-inner">
+        <div class="smart-widget-body">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="设备报检申请">
+                    <form id="formToggleLine" class="form-horizontal no-margin">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">产权备案编号</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.iprCode"></span>
+                            </div>
+                        </div>
+                        <!-- 设备编号 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">设备编号</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.deviceCode"></span>
+                            </div>
+                        </div>
+                        <!-- 设备名称 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">设备名称</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.deviceName"></span>
+                            </div>
+                        </div>
+                        <!-- 规格型号 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">规格型号</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.specification"></span>
+                            </div>
+                        </div>
+                        <!--所属工程-->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">所属工程</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.project.name"></span>
+                            </div>
+                        </div>
+                        <!--设备公司名-->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">设备公司名</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.applicationCompany.name"></span>
+                            </div>
+                        </div>
+                        <!-- 申报人 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">申报人</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.declarant"></span>
+                            </div>
+                        </div>
+                        <!-- 申报时间 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">申报时间</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="applicationDetailAll.createTime| date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                        <!-- 图片 -->
+                        <div class="form-group" ng-repeat="key in applicationDetailAll.materialFiles">
+                            <label class="col-lg-3 control-label">{{key.name}}</label>
+                            <div class="col-lg-9">
+                                <img ngf-src="key.url" src="" alt="" class="img-responsive" style="width: 150px;height: 200px;border: 1px solid #ccc;">
+                            </div>
+                        </div>
+                    </form>
+                </uib-tab>
+                <uib-tab index="1" heading="检验单位审核">
+                    <form id="formToggleLine1" class="form-horizontal no-margin">
+                        <!-- 审核人 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">审核人</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="auditDetail.accepter.username"></span>
+                            </div>
+                        </div>
+
+                        <!-- 审核时间 -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">审核时间</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="auditDetail.createTime| date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                    </form>
+                </uib-tab>
+
+                <uib-tab index="2" heading="现场检验详情">
+                    <form  class="form-horizontal no-margin">
+
+                        <!-- 检验人员 -->
+                        <div class="form-group">
+                            <br>
+                            <label class="col-lg-3 control-label">检验人员</label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control" ng-bind="executionDetail.inspector.username"></span>
+                            </div>
+                        </div>
+
+                        <!-- 签到时间
+ -->
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">签到时间
+                            </label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="executionDetail.signIn.createTime| date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">签到地点
+
+                            </label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="executionDetail.signIn.address| date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">签退时间
+
+                            </label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="executionDetail.signOut.createTime| date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">签退地点
+                            </label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="executionDetail.signOut.address"></span>
+                            </div>
+                        </div>
+                        <!-- 图片 -->
+                        <div class="form-group" ng-repeat="images in executionDetail.materialFiles">
+                            <label class="col-lg-3 control-label">{{images.name}}</label>
+                            <div class="col-lg-9" ng-repeat="img in imageArr">
+                                <img ngf-src="images.url">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">审核时间
+                            </label>
+                            <div class="col-lg-9">
+                                <span type="text" class="form-control"
+                                      ng-bind="executionDetail.createTime|date:'yyyy/MM/dd'"></span>
+                            </div>
+                        </div>
+                    </form>
+                </uib-tab>
+
+                <uib-tab index="3" heading="检验报告详情">
+                    <form  class="form-horizontal no-margin">
+                        <div class="form-group">
+                            <!-- 设备检验报告编号 -->
+                            <br>
+                            <div class="col-sm-4 col-xs-6">
+
+                                <label class="control-label">设备检验报告编号</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.code" id="code" required ></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 设备安装地点 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">设备安装地点</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.deviceInstallAddress"  id="deviceInstallAddress" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 出厂编号 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">出厂编号</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.factoryNumber" id="factoryNumber" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 安装许可证编号 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">安装许可证编号</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.installLicenseCode" id="installLicenseCode" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 生产厂家 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">生产厂家</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.factory" id="factory" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 制造许可证编号 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">制造许可证编号</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.manufacturingLicenseNumber"
+                                          id="manufacturingLicenseNumber" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 出厂日期 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">出厂日期</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          required ng-bind="conclusionDetail.factoryDate|date:'yyyy/MM/dd'"></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <!-- 使用年限 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">使用年限</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.serviceLife" id="serviceLife" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 安装高度 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">安装高度</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.mountingHeight" id="mountingHeight" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 最大额定起重量 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">最大额定起重量</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.maxSpecifiedWeight" id="maxSpecifiedWeight" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 最大起重力矩 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">最大起重力矩</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.maxLoadMoment" id="maxLoadMoment" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <!-- 起升速度 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">起升速度</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.liftingSpeed" id="liftingSpeed" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 最大幅度 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">最大幅度</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.maxRadius" id="maxRadius" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 安装幅度 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">安装幅度</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.installRadius" id="installRadius" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 变幅速度 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">变幅速度</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.derrickingSpeed" id="derrickingSpeed" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 大车运行速度 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">大车运行速度</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.gantryTravelingSpeed" id="gantryTravelingSpeed" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 附着道数 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">附着道数</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.attachChannelCount" id="attachChannelCount" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 检验依据 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">检验依据</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-model="conclusionDetail.inspectionStandard" id="inspectionStandard" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 主要检验仪器 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">主要检验仪器</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-model="conclusionDetail.mainInspectionInstrument" id="mainInspectionInstrument" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 检验结论 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">检验结论</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-model="conclusionDetail.inspectionConclusion" id="inspectionConclusion" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 备注 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">备注</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-model="conclusionDetail.remark" id="remark" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 下次检验日期 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">下次检验日期</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          required ng-bind="conclusionDetail.nextInspectionDate|date:'yyyy/MM/dd'"></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 审核人员 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">审核人员</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.auditOfficer" id="auditOfficer" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 审核日期 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">审核日期</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          required ng-bind="conclusionDetail.auditDate|date:'yyyy/MM/dd'"></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 批准人员 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">批准人员</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.authorizingOfficer" id="authorizingOfficer" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 批准日期 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">批准日期</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          required ng-bind="conclusionDetail.authorizingDate|date:'yyyy/MM/dd'"></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 检验机构核准证号 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">检验机构核准证号</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          ng-bind="conclusionDetail.inspectionUnitCertificate" id="inspectionUnitCertificate" required></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                            <!-- 签发日期 -->
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="control-label">签发日期</label>
+                                <div>
+                                    <span type="text" class="form-control"
+                                          required ng-bind="conclusionDetail.issueDate|date:'yyyy/MM/dd'"></span>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 检验报告封面 -->
+
+                        <div class="form-group" >
+                            <div class="col-xs-6">
+                                <label class="control-label">检验报告封面</label>
+
+                                <div>
+                                    <img ngf-src="conclusionDetail.inspectionReportCoverPageFilePath" width="150px" height="200px">
+                                    <span class="help-block"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <!-- 检验报告结论页 -->
+
+                                <label class="control-label">检验报告结论页</label>
+                                <div >
+                                    <img ngf-src="conclusionDetail.inspectionReportConclusionPageFilePath" width="150px" height="200px">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

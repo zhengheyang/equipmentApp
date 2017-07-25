@@ -1,10 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h3 class="header-text m-bottom-sm">检验人员</h3>
+    <div style="float: right;margin-top: 2px;margin-right: 15px">
 
-</body>
-</html>
+
+        <button class="btn  btn-sm btn-success " data-toggle="modal" data-target="#myModal"
+             ng-click="openAddPersonModal()"  ><span class="fa fa-plus fa-lg" aria-hidden="true"></span>&nbsp;添加
+        </button>
+    </div>
+
+
+    <div class="smart-widget widget-purple" style="display: inline-block;width: 100%;height: 100%">
+
+        <div class="panel-body table-responsive" style="min-height: 340px;">
+
+
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">添加检验人员信息
+                            </h4>
+                        </div>
+
+
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0px">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class="control-label">用户名</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="userName"
+                                               class=" form-control ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
+                                               placeholder="请输入用户名" ng-model="adminData.username">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">密码</label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+
+                                        <input type="password" id="password"
+                                               class="form-control"
+                                               placeholder="请输入密码" ng-model="adminData.password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">性别</label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+
+                                        <ui-select  ng-model="sex" theme="bootstrap">
+                                            <ui-select-match>{{sex.sex}}</ui-select-match>
+                                            <ui-select-choices repeat="item in sexArr | filter: $select.search">
+                                                <div ng-bind-html="item.sex | highlight: $select.search"></div>
+                                            </ui-select-choices>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">身份证号码</label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+
+                                        <input type="text" class="form-control "
+                                               placeholder="请输入身份证号码">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">作业类别
+                                        </label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <select class="form-control ">
+                                            <option value=""selected>检验人员</option>
+                                            <option value="">塔机司机</option>
+                                            <option value="">塔机索工</option>
+                                            <option value="">安全员</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">资格证书编号</label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+
+                                        <input type="text" class="form-control "
+                                               placeholder="请输入资格证书编号">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">工作单位
+                                        </label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+
+                                        <input type="text" class="form-control "
+                                               placeholder="请输入工作单位
+">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">资格证书
+
+                                        </label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="button" ngf-select ngf-pattern="'image/*'"
+                                             ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                                             ng-change="updateImgChange()">(文件最大为1M)
+
+                                        </div>
+
+                                        <input type="file" ngf-select=""
+                                               ng-model="engineeringData.constructionLicenseFile"
+                                               ng-change="updateImgChange()" ngf-multiple="false"
+                                               class="ng-pristine ng-untouched ng-valid ng-empty">
+                                        <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                                             src="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+
+                            <div class="form-group" style="margin-bottom: 0">
+                                <div class="row">
+                                    <div class="col-sm-3 text-right" style="padding-top: 8px">
+                                        <label class=" control-label">身份证
+
+                                        </label>
+
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="button" ngf-select ngf-pattern="'image/*'"
+                                             ng-model="engineeringData.constructionLicenseFile" ngf-multiple="false"
+                                             ng-change="updateImgChange()">(文件最大为1M)
+
+                                        </div>
+
+                                        <input type="file" ngf-select=""
+                                               ng-model="engineeringData.constructionLicenseFile"
+                                               ng-change="updateImgChange()" ngf-multiple="false"
+                                               class="ng-pristine ng-untouched ng-valid ng-empty">
+                                        <img class="material-image" ngf-src="engineeringData.constructionLicenseFile"
+                                             src="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <button class="btn btn-success btn-lg btn-block" ng-click="onConfirmButtonClick()">
+                                        确定
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>身份证号码</th>
+                    <th>作业类别</th>
+                    <th>资格证书编号</th>
+                    <th>工作单位</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tr ng-repeat="person in personListDetail">
+                    <td>{{person.username}}</td>
+                    <td>{{person.gender |sex}}</td>
+                    <td>{{person.idCardNumber}}</td>
+                    <td>{{person.jobType |jopTypeSelect}}</td>
+                    <td>{{person.company.qualificationCertificateCode}}</td>
+                    <td>{{person.company.name}}</td>
+
+                    <td>
+                        <span class="fa fa-pencil-square-o fa-lg btn btn-primary marginTB-xs" title="编辑"
+                              ng-click="onUpdateButtonClick($index)"></span>
+                        <span ng-if="data.username != 'admin'"
+                              class="fa fa-trash fa-lg btn  btn-danger marginTB-xs ng-scope" title="删除"
+                              ng-click="onRemoveButtonClick($index)"></span>
+                    </td>
+                </tr>
+
+
+
+
+            </table>
+
+
+        </div>
+        <div style="float: right">
+            <ul class="pagination ng-isolate-scope ng-not-empty ng-valid" uib-pagination="" max-size="5"
+                ng-model="accompanyCurrentPage" items-per-page="10" first-text="«" total-items="dataTotalItems"
+                boundary-link-numbers="true" rotate="false" last-text="»" ng-change="getTaskList()" previous-text="‹"
+                next-text="›" boundary-links="true">
+                <!-- ngIf: ::boundaryLinks -->
+                <li ng-if="::boundaryLinks" ng-class="{disabled: noPrevious()||ngDisabled}"
+                    class="pagination-first ng-scope disabled"><a href="" ng-click="selectPage(1, $event)"
+                                                                  class="ng-binding">«</a></li>
+                <!-- end ngIf: ::boundaryLinks -->
+                <!-- ngIf: ::directionLinks -->
+                <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}"
+                    class="pagination-prev ng-scope disabled"><a href="" ng-click="selectPage(page - 1, $event)"
+                                                                 class="ng-binding">‹</a></li>
+                <!-- end ngIf: ::directionLinks -->
+                <!-- ngRepeat: page in pages track by $index -->
+                <li ng-repeat="page in pages track by $index"
+                    ng-class="{active: page.active,disabled: ngDisabled&amp;&amp;!page.active}"
+                    class="pagination-page ng-scope active"><a href="" ng-click="selectPage(page.number, $event)"
+                                                               class="ng-binding">1</a></li>
+                <!-- end ngRepeat: page in pages track by $index -->
+                <!-- ngIf: ::directionLinks -->
+                <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}"
+                    class="pagination-next ng-scope disabled"><a href="" ng-click="selectPage(page + 1, $event)"
+                                                                 class="ng-binding">›</a></li>
+                <!-- end ngIf: ::directionLinks -->
+                <!-- ngIf: ::boundaryLinks -->
+                <li ng-if="::boundaryLinks" ng-class="{disabled: noNext()||ngDisabled}"
+                    class="pagination-last ng-scope disabled"><a href="" ng-click="selectPage(totalPages, $event)"
+                                                                 class="ng-binding">»</a></li>
+                <!-- end ngIf: ::boundaryLinks -->
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+
+</ui-view>
+
+</div>

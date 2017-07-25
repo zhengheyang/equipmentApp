@@ -1,15 +1,18 @@
+<!--设备类型管理-->
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <h3 class="header-text m-bottom-sm">塔机司机</h3>
+    <h3 class="header-text m-bottom-sm">设备类型
+
+    </h3>
     <div style="float: right;margin-top: 2px;margin-right: 15px">
 
 
         <button class="btn  btn-sm btn-success " data-toggle="modal" data-target="#myModal"
-                ng-click="openAddDriver()"><span class="fa fa-plus fa-lg" aria-hidden="true" ></span>&nbsp;添加
+                ng-click="openAddEquipment()"><span class="fa fa-plus fa-lg" aria-hidden="true"></span>&nbsp;添加
         </button>
     </div>
 
 
-    <div class="smart-widget widget-purple" style="display: inline-block;width: 100%;height: 100%">
+    <div class="smart-widget  widget-purple" style="display: inline-block;width: 100%;height: 100%">
 
         <div class="panel-body table-responsive" style="min-height: 340px;">
 
@@ -21,27 +24,21 @@
 
 
 
+
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>姓名</th>
-                    <th>性别</th>
-                    <th>身份证号码</th>
-                    <th>作业类别</th>
-                    <th>资格证书编号</th>
-                    <th>工作单位</th>
+                    <th>设备类型编号</th>
+                    <th>设备类型名称</th>
                     <th>操作</th>
+
                 </tr>
                 </thead>
-                <tr ng-repeat="driver in qtzDriverDetail ">
-                    <td>{{driver.username}}</td>
-                    <td>{{driver.gender | sex}}</td>
-                    <td>{{driver.idCardNumber}}</td>
-                    <td>{{driver.jobType|jopTypeSelect}}</td>
-                    <td>{{driver.company.qualificationCertificateCode}}</td>
-                    <td>{{driver.company.name}}</td>
+                <tr ng-repeat="equipment in equipmentDetail">
 
-                   <td>
+                    <td>{{equipment.id}}</td>
+                    <td>{{equipment.name}}</td>
+                    <td>
                         <span class="fa fa-pencil-square-o fa-lg btn btn-primary marginTB-xs" title="编辑"
                               ng-click="onUpdateButtonClick($index)"></span>
                         <span ng-if="data.username != 'admin'"
@@ -96,6 +93,9 @@
 </div>
 
 
+
+
+
 </ui-view>
 
-</div>
+</div><!--设备类型管理-->
