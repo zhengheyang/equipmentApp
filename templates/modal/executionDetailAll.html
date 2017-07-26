@@ -36,24 +36,21 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">规格型号</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="applicationDetailAll.specification"></span>
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.specification"></span>
                             </div>
                         </div>
                         <!--所属工程-->
                         <div class="form-group">
                             <label class="col-lg-3 control-label">所属工程</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="applicationDetailAll.project.name"></span>
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.project.name"></span>
                             </div>
                         </div>
                         <!--设备公司名-->
                         <div class="form-group">
                             <label class="col-lg-3 control-label">设备公司名</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="applicationDetailAll.applicationCompany.name"></span>
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.applicationCompany.name"></span>
                             </div>
                         </div>
                         <!-- 申报人 -->
@@ -67,8 +64,7 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">申报时间</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="applicationDetailAll.createTime| date:'yyyy/MM/dd'"></span>
+                                <span type="text" class="form-control" ng-bind="applicationDetailAll.createTime| date:'yyyy/MM/dd'"></span>
                             </div>
                         </div>
                         <!-- 图片 -->
@@ -94,8 +90,7 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">审核时间</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="auditDetail.createTime| date:'yyyy/MM/dd'"></span>
+                                <span type="text" class="form-control" ng-bind="auditDetail.createTime| date:'yyyy/MM/dd'"></span>
                             </div>
                         </div>
                     </form>
@@ -105,16 +100,14 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">检验人员</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="executionDetail.inspector.username"></span>
+                                <span type="text" class="form-control" ng-bind="executionDetail.inspector.username"></span>
                             </div>
                         </div>
                         <!-- 签到时间 -->
                         <div class="form-group">
                             <label class="col-lg-3 control-label">签到时间</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="executionDetail.signIn.createTime| date:'yyyy/MM/dd'"></span>
+                                <span type="text" class="form-control" ng-bind="executionDetail.signIn.createTime| date:'yyyy/MM/dd'"></span>
                             </div>
                         </div>
                         <!-- 签到地点 -->
@@ -128,8 +121,7 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">签退时间</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="executionDetail.signOut.createTime| date:'yyyy/MM/dd'"></span>
+                                <span type="text" class="form-control" ng-bind="executionDetail.signOut.createTime| date:'yyyy/MM/dd'"></span>
                             </div>
                         </div>
                         <!--签退地点-->
@@ -140,22 +132,21 @@
                             </div>
                         </div>
                         <!--图片-->
-                            <div class="form-group" ng-repeat="key in reportMaterial">
-                                <div class="col-lg-12">
-                                    <label class="col-lg-3 control-label">{{key.name}}</label>
-                                    <div class="col-lg-9">
-                                        <span ng-repeat="file in key.fileCon" style="display: inline-block;margin: 10px">
+                        <div class="form-group" ng-repeat="key in reportMaterial">
+                            <div class="col-lg-12">
+                                <label class="col-lg-3 control-label">{{key.name}}</label>
+                                <div class="col-lg-9">
+                                    <span ng-repeat="file in key.fileCon" style="display: inline-block;margin: 10px">
                                             <img ngf-src="file.url" src="" alt="" class="img-responsive" style="width: 150px;height: 200px;border: 1px solid #ccc;">
                                         </span>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
                         <!-- 申报时间 -->
                         <div class="form-group">
                             <label class="col-lg-3 control-label">审核时间</label>
                             <div class="col-lg-9">
-                                <span type="text" class="form-control"
-                                      ng-bind="executionDetail.createTime| date:'yyyy/MM/dd'"></span>
+                                <span type="text" class="form-control" ng-bind="executionDetail.createTime| date:'yyyy/MM/dd'"></span>
                             </div>
                         </div>
 
