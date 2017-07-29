@@ -8,8 +8,6 @@ angular.module('equipmentApp',[
     'ngSanitize',
     'cgBusy',
     'equipmentApp.controller',
-    'equipmentApp.controllerGC',
-    'equipmentApp.controllerLJ',
     'equipmentApp.services',
     'equipmentApp.component',
     'equipmentApp.filters',
@@ -20,7 +18,7 @@ angular.module('equipmentApp',[
             .state('signin',{
                 url:'/singnin',
                 templateUrl:'templates/signin.html',
-                controller:'singCtrl'
+                controller:'signInCtrl'
             })
             .state('main',{
                 url: '/main',
@@ -31,7 +29,7 @@ angular.module('equipmentApp',[
                 url: '/engineering-service',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/engineering-service.html',
+                        templateUrl: 'templates/information-show/engineering-service/engineering-service.html',
                         controller:'engineeringServiceCtrl'
                     }
                 }
@@ -40,7 +38,7 @@ angular.module('equipmentApp',[
                 url: '/equipment-service',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/equipment-service.html',
+                        templateUrl: 'templates/information-show/equipment-service/equipment-service.html',
                         controller:'equipmentCtrl'
 
                     }
@@ -50,7 +48,7 @@ angular.module('equipmentApp',[
                 url: '/epc-unit',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/epc-unit.html',
+                        templateUrl: 'templates/information-show/epc-unit/epc-unit.html',
                         controller:'epcUnitCtrl'
                     }
                 }
@@ -59,7 +57,7 @@ angular.module('equipmentApp',[
                 url: '/inspection-person',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/inspection-person.html',
+                        templateUrl: 'templates/information-show/inspection-person/inspection-person.html',
                         controller:'inspectionPersonCtrl'
                     }
                 }
@@ -68,7 +66,7 @@ angular.module('equipmentApp',[
                 url: '/inspection-unit',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/inspection-unit.html',
+                        templateUrl: 'templates/information-show/inspection-unit/inspection-unit.html',
                         controller:'inspectionUnitCtrl'
                     }
                 }
@@ -77,7 +75,7 @@ angular.module('equipmentApp',[
                 url: '/install-unit',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/install-unit.html',
+                        templateUrl: 'templates/information-show/install-unit/install-unit.html',
                         controller:'installUnitCtrl'
                     }
                 }
@@ -86,7 +84,7 @@ angular.module('equipmentApp',[
                 url: '/other-unit',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/other-unit.html',
+                        templateUrl: 'templates/information-show/other-unit/other-unit.html',
                         controller:'otherUnitCtrl'
                     }
                 }
@@ -95,7 +93,7 @@ angular.module('equipmentApp',[
                 url: '/property-unit',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/property-unit.html',
+                        templateUrl: 'templates/information-show/property-unit/property-unit.html',
                         controller:'propertyUnitCtrl'
                     }
                 }
@@ -104,7 +102,7 @@ angular.module('equipmentApp',[
                 url: '/inspection-application',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/inspection-application.html',
+                        templateUrl: 'templates/inspection-information/inspection-application/inspection-application.html',
                         controller: 'inspectionApplicationCtrl',
                     }
                 }
@@ -113,7 +111,7 @@ angular.module('equipmentApp',[
                 url: '/inspection-unit-audit',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/inspection-unit-audit.html',
+                        templateUrl: 'templates/inspection-information/inspection-unit-audit/inspection-unit-audit.html',
                         controller: 'inspectionUnitAuditCtrl'
                     }
                 }
@@ -122,7 +120,7 @@ angular.module('equipmentApp',[
                 url: '/qtz-driver',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/qtz-driver.html',
+                        templateUrl: 'templates/information-show/qtz-driver/qtz-driver.html',
                         controller:'qtzDriverCtrl'
                     }
                 }
@@ -131,7 +129,7 @@ angular.module('equipmentApp',[
                 url: '/qtz-worker',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/qtz-worker.html',
+                        templateUrl: 'templates/information-show/qtz-worker/qtz-worker.html',
                         controller:'qtzWorkerCtrl'
                     }
                 }
@@ -140,7 +138,7 @@ angular.module('equipmentApp',[
                 url: '/safety-officer',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/safety-officer.html',
+                        templateUrl: 'templates/information-show/safety-officer/safety-officer.html',
                         controller:'safetyCtrl'
                     }
                 }
@@ -149,7 +147,7 @@ angular.module('equipmentApp',[
                 url: '/role-management',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/role-management.html',
+                        templateUrl: 'templates/management/role-management/role-management.html',
                         controller: 'roleManagementCtrl'
                     }
                 }
@@ -158,7 +156,7 @@ angular.module('equipmentApp',[
                 url: '/admin-management',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/admin-management.html',
+                        templateUrl: 'templates/management/admin-management/admin-management.html',
                         controller:'adminManagementCtrl'
                     }
                 }
@@ -167,7 +165,7 @@ angular.module('equipmentApp',[
                 url: '/detection-prepare',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/detection-prepare.html',
+                        templateUrl: 'templates/inspection-information/detection-prepare/detection-prepare.html',
                         controller:'detectionPrepareCtrl'
                     }
                 }
@@ -176,7 +174,7 @@ angular.module('equipmentApp',[
                 url: '/certificate',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/certificate.html',
+                        templateUrl: 'templates/inspection-information/certificate/certificate.html',
                         controller:'certificateCtrl'
                     }
                 }
@@ -185,7 +183,7 @@ angular.module('equipmentApp',[
                 url: '/inspection-report',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/inspection-report.html',
+                        templateUrl: 'templates/inspection-information/inspection-report/inspection-report.html',
                         controller:'inspectionReportCtrl'
                     }
                 }
@@ -194,7 +192,7 @@ angular.module('equipmentApp',[
                 url: '/report-recheck',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/report-recheck.html',
+                        templateUrl: 'templates/inspection-information/report-recheck/report-recheck.html',
                         controller:'reportRecheckCtrl'
                     }
                 }
@@ -203,7 +201,7 @@ angular.module('equipmentApp',[
                 url: '/site-inspection',
                 views: {
                     'main-page': {
-                        templateUrl: 'templates/site-inspection.html',
+                        templateUrl: 'templates/inspection-information/site-inspection/site-inspection.html',
                         controller:'siteInspectionCtrl'
                     }
                 }

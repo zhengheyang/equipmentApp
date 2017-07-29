@@ -7,7 +7,7 @@ var address={
         detail:'api/device-inspection/application/detail', //?id=227'
         detailAll:'api/device-inspection/application/detail-all', //?id=2'
         accepted:'api/device-inspection/application/accepted',   //?page=1&count=20&adminId=1'
-        update:'{{host}}/api/device-inspection/application/update'
+        update:'api/device-inspection/application/update'
     },
     //申请材料
     applicationMaterial:{

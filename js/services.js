@@ -1037,7 +1037,7 @@ angular.module('equipmentApp.services', [])
                 }).then(function successCallback(response) {
                     deferred.resolve(response);
                 }, function errorCallback(response) {
-                    deferred.reject(alert('未请求到！请重试！'));
+                    deferred.reject(alert('请求失败！请重试！'));
                 });
                 return deferred.promise;
             },
